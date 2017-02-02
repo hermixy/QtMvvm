@@ -1,0 +1,3 @@
+[submodule "QuickExtras"]
+	path = QuickExtras
+	url = git@github.com:Skycoder42/QuickExtras.git
