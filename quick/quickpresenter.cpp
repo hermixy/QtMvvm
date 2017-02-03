@@ -215,6 +215,9 @@ QObject *QuickPresenterQmlSingleton::qmlPresenter() const
 
 void QuickPresenterQmlSingleton::present(Control *control)
 {
+	if(_activeControls.contains(control))
+		return;
+
 	auto url = _presenter->findViewUrl(control->metaObject());
 	if(!url.isValid()) {
 		qCritical() << "No QML-URL found for" << control->metaObject()->className();

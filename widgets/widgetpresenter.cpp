@@ -65,8 +65,7 @@ InputWidgetFactory *WidgetPresenter::inputWidgetFactory()
 
 void WidgetPresenter::present(Control *control)
 {
-	auto active = activeControls.value(control);
-	if(active)
+	if(activeControls.contains(control))
 		return;
 
 	auto ok = false;
