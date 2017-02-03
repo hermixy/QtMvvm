@@ -66,10 +66,8 @@ InputWidgetFactory *WidgetPresenter::inputWidgetFactory()
 void WidgetPresenter::present(Control *control)
 {
 	auto active = activeControls.value(control);
-	if(active) {
-		extendedShow(active);
+	if(active)
 		return;
-	}
 
 	auto ok = false;
 	auto widgetMetaObject = findWidgetMetaObject(control->metaObject(), ok);
@@ -259,7 +257,9 @@ bool WidgetPresenter::tryPresent(QWidget *widget, QWidget *parent)
 	} else if(parent && parent->metaObject()->inherits(&QMainWindow::staticMetaObject)) {
 		auto mainWindow = qobject_cast<QMainWindow*>(parent);
 		if(metaObject->inherits(&QDockWidget::staticMetaObject)) {
-			mainWindow->addDockWidget(Qt::LeftDockWidgetArea, qobject_cast<QDockWidget*>(widget));
+			auto dockWidget = qobject_cast<QDockWidget*>(widget);
+			if(!mainWindow->restoreDockWidget(dockWidget))
+				mainWindow->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 			return true;
 		} else if(metaObject->inherits(&QMdiSubWindow::staticMetaObject) &&
 		   mainWindow->centralWidget() &&

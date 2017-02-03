@@ -35,7 +35,7 @@ void SettingsControl::showSettingsControl(QObject *parent)
 {
 	auto control = new SettingsControl(parent);
 	control->setDeleteOnClose(true);
-	control->showControl(control);
+	control->show();
 }
 
 void SettingsControl::setSetupLoader(SettingsSetupLoader *loader)

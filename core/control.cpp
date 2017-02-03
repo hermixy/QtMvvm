@@ -24,6 +24,11 @@ bool Control::deleteOnClose() const
 	return _deleteOnClose;
 }
 
+void Control::show()
+{
+	QMetaObject::invokeMethod(CoreApp::instance(), "showControl", Q_ARG(Control*, this));
+}
+
 void Control::close()
 {
 	QMetaObject::invokeMethod(CoreApp::instance(), "closeControl", Q_ARG(Control*, this));
@@ -36,9 +41,4 @@ void Control::setDeleteOnClose(bool deleteOnClose)
 
 	_deleteOnClose = deleteOnClose;
 	emit deleteOnCloseChanged(deleteOnClose);
-}
-
-void Control::showControl(Control *control) const
-{
-	QMetaObject::invokeMethod(CoreApp::instance(), "showControl", Q_ARG(Control*, control));
 }

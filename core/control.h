@@ -21,14 +21,12 @@ public:
 	bool deleteOnClose() const;
 
 public slots:
-	void close();	
+	void show();
+	void close();
 	void setDeleteOnClose(bool deleteOnClose);
 
 signals:
 	void deleteOnCloseChanged(bool deleteOnClose);
-
-protected slots:
-	void showControl(Control *control) const;
 
 private:
 	bool _deleteOnClose;
