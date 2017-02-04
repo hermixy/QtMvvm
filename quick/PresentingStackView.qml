@@ -16,7 +16,7 @@ StackView {
 	function withdrawItem(item) {
 		if(currentItem === item)
 			pop();
-		delay(animDuration + 500, item.destroy);
+		delay(animDuration + 50, item.destroy);
 		return true;
 	}
 
@@ -31,7 +31,7 @@ StackView {
 			return true;
 		} else {
 			var item = mainStack.pop();
-			delay(animDuration + 500, item.destroy);
+			delay(animDuration + 50, item.destroy);
 			return false;
 		}
 	}
