@@ -83,6 +83,7 @@ AlertDialog {
 	}
 
 	contentItem: ColumnLayout {
+
 		Label {
 			id: contentLabel
 			visible: text != ""
@@ -97,8 +98,10 @@ AlertDialog {
 		Loader {
 			id: contentLoader
 			visible: item
+			clip: true
 
 			Layout.preferredWidth: contentLoader.item ? contentLoader.item.implicitWidth : 0
+			Layout.fillHeight: true
 			Layout.fillWidth: true
 		}
 	}
