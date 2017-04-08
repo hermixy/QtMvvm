@@ -1,22 +1,24 @@
 INCLUDEPATH += $$PWD/../core $$PWD
 
+message($$fromfile($$PWD/../../Desktop/vendor/vendor.pri, INCLUDEPATH))
+
 HEADERS += \
 	$$PWD/widgetpresenter.h \
 	$$PWD/ipresentingwidget.h \
 	$$PWD/objectproxymodel.h \
-    $$PWD/settingsdialog.h \
-    $$PWD/inputwidgetfactory.h \
-    $$PWD/listcombobox.h
+	$$PWD/settingsdialog.h \
+	$$PWD/inputwidgetfactory.h \
+	$$PWD/listcombobox.h
 
 SOURCES += \
 	$$PWD/widgetpresenter.cpp \
 	$$PWD/objectproxymodel.cpp \
-    $$PWD/settingsdialog.cpp \
-    $$PWD/inputwidgetfactory.cpp \
-    $$PWD/listcombobox.cpp
+	$$PWD/settingsdialog.cpp \
+	$$PWD/inputwidgetfactory.cpp \
+	$$PWD/listcombobox.cpp
 
 FORMS += \
-    $$PWD/settingsdialog.ui
+	$$PWD/settingsdialog.ui
 
 RESOURCES += \
-    $$PWD/qtmvvmwidgets.qrc
+	$$PWD/qtmvvmwidgets.qrc
