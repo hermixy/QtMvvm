@@ -1,11 +1,10 @@
 #ifndef OBJECTLISTMODEL_H
 #define OBJECTLISTMODEL_H
 
-#include "qtmvvm_core_global.h"
 #include <QAbstractListModel>
 
 class ObjectSignalHelper;
-class QTMVVM_CORE_SHARED_EXPORT ObjectListModel : public QAbstractListModel
+class ObjectListModel : public QAbstractListModel
 {
 	Q_OBJECT
 

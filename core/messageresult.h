@@ -1,13 +1,12 @@
 #ifndef MESSAGERESULT_H
 #define MESSAGERESULT_H
 
-#include "qtmvvm_core_global.h"
 #include <QObject>
 #include <QVariant>
 #include <QMetaProperty>
 #include <QPointer>
 
-class QTMVVM_CORE_SHARED_EXPORT MessageResult : public QObject
+class MessageResult : public QObject
 {
 	Q_OBJECT
 

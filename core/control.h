@@ -1,10 +1,9 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include "qtmvvm_core_global.h"
 #include <QObject>
 
-class QTMVVM_CORE_SHARED_EXPORT Control : public QObject
+class Control : public QObject
 {
 	Q_OBJECT
 

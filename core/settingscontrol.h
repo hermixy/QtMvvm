@@ -1,14 +1,13 @@
 #ifndef SETTINGSCONTROL_H
 #define SETTINGSCONTROL_H
 
-#include "qtmvvm_core_global.h"
 #include "control.h"
 #include "settingssetuploader.h"
 #include "coreapp.h"
 #include <QDir>
 #include <QSettings>
 
-class QTMVVM_CORE_SHARED_EXPORT SettingsControl : public Control
+class SettingsControl : public Control
 {
 	Q_OBJECT
 
@@ -29,7 +28,7 @@ public:
 
 	QSettings *settings() const;
 
-	virtual bool canRestoreDefaults() const;	
+	virtual bool canRestoreDefaults() const;
 	bool allowCaching() const;
 
 	void setMapping(const QString &uiId, const QString &settingsKey);
@@ -44,7 +43,7 @@ public slots:
 	void setAllowCaching(bool allowCaching);
 
 signals:
-	void valueChanged(const QString &key, const QVariant &value);	
+	void valueChanged(const QString &key, const QVariant &value);
 	void allowCachingChanged(bool allowCaching);
 
 private slots:

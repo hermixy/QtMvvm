@@ -1,7 +1,6 @@
 #ifndef COREAPP_H
 #define COREAPP_H
 
-#include "qtmvvm_core_global.h"
 #include <QCommandLineParser>
 #include <QObject>
 #include <QPointer>
@@ -12,7 +11,7 @@
 #include "messageresult.h"
 class IPresenter;
 
-class QTMVVM_CORE_SHARED_EXPORT CoreApp : public QObject
+class CoreApp : public QObject
 {
 	Q_OBJECT
 
@@ -26,7 +25,7 @@ public:
 	};
 	Q_ENUM(MessageType)
 
-	struct QTMVVM_CORE_SHARED_EXPORT MessageConfig {
+	struct MessageConfig {
 		CoreApp::MessageType type;
 		QString title;
 		QString text;
