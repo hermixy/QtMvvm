@@ -3,7 +3,7 @@ TEMPLATE = lib
 QT += core gui
 CONFIG += c++11 staticlib #important because dlls are problematic
 
-TARGET = MvvmExampleQuick
+TARGET = MvvmExampleCore
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
