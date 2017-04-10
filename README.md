@@ -20,3 +20,15 @@ Another feature is the QtMvvmSettings module. This extends the QtMvvm projects b
 	- Utilizes the same edits as the input dialogs
 
 Check the example application in this repository to see more. See [Example - README](Example/README.md).
+
+## Modules
+- `de.skycoder42.qtmvvm` - The QtMvvm library itself
+	- [`de.skycoder42.qtmvvm.core`](https://github.com/Skycoder42/QtMvvmCore) - The core part of qtmvvm
+	- [`de.skycoder42.qtmvvm.widgets`](https://github.com/Skycoder42/QtMvvmWidgets) - The basic frontend for QtWidgets
+	- [`de.skycoder42.qtmvvm.quick`](https://github.com/Skycoder42/QtMvvmQuick) - The basic frontend for QtQuick Controls 2Modules
+- `de.skycoder42.qtmvvm.settings` - A module adding an easy way to create settings dialogs
+	- [`de.skycoder42.qtmvvm.settings.core`](https://github.com/Skycoder42/QtMvvmSettingsCore) - The core part of the settings module (the logic)
+	- [`de.skycoder42.qtmvvm.settings.widgets`](https://github.com/Skycoder42/QtMvvmSettingsWidgets) - The ui implementation for QtWidgets
+	- [`de.skycoder42.qtmvvm.settings.quick`](https://github.com/Skycoder42/QtMvvmSettingsQuick) - The ui implementation for QtQuick Controls 2
+
+## Installation
