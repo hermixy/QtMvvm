@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <maincontrol.h>
+
 namespace Ui {
 class MainWindow;
 }
@@ -12,10 +14,11 @@ class MainWindow : public QMainWindow
 	Q_OBJECT
 
 public:
-	explicit MainWindow(QWidget *parent = 0);
+	Q_INVOKABLE MainWindow(Control *mControl, QWidget *parent = nullptr);
 	~MainWindow();
 
 private:
+	MainControl *control;
 	Ui::MainWindow *ui;
 };
 
