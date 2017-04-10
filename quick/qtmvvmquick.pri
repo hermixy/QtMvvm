@@ -18,5 +18,3 @@ SOURCES += \
 
 RESOURCES += \
 	$$PWD/qtmvvmquick.qrc
-
-include(../QuickExtras/de_skycoder42_quickextras.pri)
