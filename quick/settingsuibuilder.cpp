@@ -3,7 +3,6 @@
 #include "settingsoverelement.h"
 #include "settingsuibuilder.h"
 #include <QRegularExpression>
-#include <objectlistmodel.h>
 #include <coremessage.h>
 
 SettingsUiBuilder::SettingsUiBuilder(QObject *parent) :
@@ -33,7 +32,7 @@ void SettingsUiBuilder::loadSection(const SettingsSection &section)
 		_currentEntryModel->deleteLater();
 
 	auto inputFactory = QuickPresenter::inputViewFactory();
-	_currentEntryModel = new GenericListModel<SettingsEntryElement>(true, this);
+	_currentEntryModel = new QGenericListModel<SettingsEntryElement>(true, this);
 	auto rIndex = 0;
 	foreach(auto group, section.groups) {
 		foreach(auto entry, group.entries) {
@@ -111,7 +110,7 @@ void SettingsUiBuilder::startBuildUi()
 	auto setup = _control->loadSetup("quick");
 	emit initActions(setup.allowSearch, setup.allowRestore);
 
-	_rootModel = new GenericListModel<SettingsOverElement>(true, this);
+	_rootModel = new QGenericListModel<SettingsOverElement>(true, this);
 	auto rIndex = 0;
 	auto hasMultiSections = false;
 	foreach(auto cat, setup.categories) {

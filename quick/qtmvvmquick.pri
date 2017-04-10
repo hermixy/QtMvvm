@@ -1,22 +1,22 @@
-INCLUDEPATH += $$PWD/../core $$PWD
+INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/quickpresenter.h \
-    $$PWD/settingsuibuilder.h \
-    $$PWD/settingsoverelement.h \
-    $$PWD/settingsentryelement.h \
-    $$PWD/inputviewfactory.h \
-    $$PWD/multifilterproxymodel.h
+	$$PWD/quickpresenter.h \
+	$$PWD/settingsuibuilder.h \
+	$$PWD/settingsoverelement.h \
+	$$PWD/settingsentryelement.h \
+	$$PWD/inputviewfactory.h \
+	$$PWD/multifilterproxymodel.h
 
 SOURCES += \
-    $$PWD/quickpresenter.cpp \
-    $$PWD/settingsuibuilder.cpp \
-    $$PWD/settingsoverelement.cpp \
-    $$PWD/settingsentryelement.cpp \
-    $$PWD/inputviewfactory.cpp \
-    $$PWD/multifilterproxymodel.cpp
+	$$PWD/quickpresenter.cpp \
+	$$PWD/settingsuibuilder.cpp \
+	$$PWD/settingsoverelement.cpp \
+	$$PWD/settingsentryelement.cpp \
+	$$PWD/inputviewfactory.cpp \
+	$$PWD/multifilterproxymodel.cpp
 
 RESOURCES += \
-    $$PWD/qtmvvmquick.qrc
+	$$PWD/qtmvvmquick.qrc
 
-include(../QuickExtras/quickextras.pri)
+include(../QuickExtras/de_skycoder42_quickextras.pri)

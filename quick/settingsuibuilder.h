@@ -8,7 +8,7 @@
 
 #include <QObject>
 #include <QQuickItem>
-#include <objectlistmodel.h>
+#include <qobjectlistmodel.h>
 #include <settingscontrol.h>
 
 class SettingsUiBuilder : public QObject
@@ -47,9 +47,9 @@ private:
 	SettingsControl *_control;
 	QString _filterText;
 
-	GenericListModel<SettingsOverElement> *_rootModel;
+	QGenericListModel<SettingsOverElement> *_rootModel;
 	MultiFilterProxyModel *_rootFilter;
-	GenericListModel<SettingsEntryElement> *_currentEntryModel;
+	QGenericListModel<SettingsEntryElement> *_currentEntryModel;
 	MultiFilterProxyModel *_currentEntryFilter;
 
 	static QUrl svgEscape(QUrl url);

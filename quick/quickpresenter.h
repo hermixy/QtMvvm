@@ -1,7 +1,7 @@
 #ifndef QUICKPRESENTER_H
 #define QUICKPRESENTER_H
 
-#include "inputviewfactory.h"
+#include <inputviewfactory.h>
 
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>

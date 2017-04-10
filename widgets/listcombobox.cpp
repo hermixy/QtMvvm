@@ -1,7 +1,5 @@
 #include "listcombobox.h"
 
-#include <QDebug>
-
 ListComboBox::ListComboBox(QWidget *parent) :
 	QComboBox(parent)
 {
