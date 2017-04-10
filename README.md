@@ -35,11 +35,11 @@ Check the example application in this repository to see more. See [Example - REA
 QtMvvm heavily relies on [qpm](https://www.qpm.io/). Check [GitHub - Installing](https://github.com/Cutehacks/qpm/blob/master/README.md#installing) to learn how to install qpm. You can of course use the project without qpm, but in that case you will have to collect all the dependencies by yourself. If you are unfamiliar with qpm, no worries, it's really easy to use.
 	
 ## Gettings started
-The easiest way to get started is to use the Qt Project template. Simply copy the contents of `ProjectTemplate` to the path described here ([Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards)) and create a QtMvvm Project via QtCreators project wizard. In that case, you can skip the first steps and only need to install qpm dependencies. To do so, simply go to the Core, Widgets and Quick directories and run `qpm install` inside of them. However, you should still read all steps to learn how QtMvvm works.
+The easiest way to get started is to use the Qt Project template. Simply copy the contents of `ProjectTemplate` to the path described here ([Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards)) and create a QtMvvm Project via QtCreators project wizard. In that case, you can skip the first two steps and only need to install qpm dependencies. To do so, simply go to the Core, Widgets and Quick directories and run `qpm install` inside of them. However, you should still read all steps to learn how QtMvvm works.
 
 ### Step 1 - Create the core project
-### Step 2 - Add the core code
-### Step 3 - Create gui project(s)
+### Step 2 - Create gui project(s)
+### Step 3 - Add the core code
 ### Step 4 - Add the gui code 
 
 ## Installation
