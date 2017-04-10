@@ -1,12 +1,9 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-04-10T19:55:31
-#
-#-------------------------------------------------
-
-TARGET = MvvmExampleCore
 TEMPLATE = lib
-CONFIG += staticlib
+
+QT += core gui
+CONFIG += c++11 staticlib #important because dlls are problematic
+
+TARGET = MvvmExampleQuick
 
 DEFINES += QT_DEPRECATED_WARNINGS
 

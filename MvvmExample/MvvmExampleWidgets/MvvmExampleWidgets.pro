@@ -1,16 +1,13 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-04-10T19:56:02
-#
-#-------------------------------------------------
+TEMPLATE = app
 
 QT       += core gui widgets
+CONFIG += c++11
 
 TARGET = MvvmExampleWidgets
-TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
+QPM_INCLUDEPATH = $$PWD/../MvvmExampleCore/vendor/vendor.pri
 include(vendor/vendor.pri)
 
 HEADERS  += mainwindow.h
@@ -20,6 +17,7 @@ SOURCES += main.cpp\
 
 FORMS    += mainwindow.ui
 
+# Link with core project
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../MvvmExampleCore/release/ -lMvvmExampleCore
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../MvvmExampleCore/debug/ -lMvvmExampleCore
 else:unix: LIBS += -L$$OUT_PWD/../MvvmExampleCore/ -lMvvmExampleCore
