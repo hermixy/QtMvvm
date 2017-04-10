@@ -33,6 +33,7 @@ void SettingsUiBuilder::loadSection(const SettingsSection &section)
 
 	auto inputFactory = QuickPresenter::inputViewFactory();
 	_currentEntryModel = new QGenericListModel<SettingsEntryElement>(true, this);
+	_currentEntryModel->setEditable(true);
 	auto rIndex = 0;
 	foreach(auto group, section.groups) {
 		foreach(auto entry, group.entries) {
@@ -111,6 +112,7 @@ void SettingsUiBuilder::startBuildUi()
 	emit initActions(setup.allowSearch, setup.allowRestore);
 
 	_rootModel = new QGenericListModel<SettingsOverElement>(true, this);
+	_rootModel->setEditable(true);
 	auto rIndex = 0;
 	auto hasMultiSections = false;
 	foreach(auto cat, setup.categories) {
