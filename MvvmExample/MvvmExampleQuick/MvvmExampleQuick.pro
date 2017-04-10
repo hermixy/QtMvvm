@@ -18,7 +18,8 @@ include(vendor/vendor.pri)
 
 SOURCES += main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += \
+    mvvmexamplesquick.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

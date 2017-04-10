@@ -1,7 +1,7 @@
 TEMPLATE = lib
 
 QT += core gui
-CONFIG += staticlib #important because dlls are problematic
+CONFIG += c++11 staticlib #important because dlls are problematic
 
 TARGET = MvvmExampleCore
 
