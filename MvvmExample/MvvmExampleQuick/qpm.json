@@ -1,0 +1,11 @@
+{
+  "name": "",
+  "description": "",
+  "dependencies": [
+    "de.skycoder42.qtmvvm.quick@1.0.0",
+    "de.skycoder42.qtmvvm.settings.quick@1.0.0"
+  ],
+  "license": "NONE",
+  "pri_filename": "",
+  "webpage": ""
+}
