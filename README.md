@@ -12,14 +12,13 @@ The main feature of QtMvvm is the seperation between ui and logic. With this lib
 - Functions to show messageboxes (info, warning, error, etc.) from your core app
 	- Supports even input dialogs, with default edits as well as the option to add custom inputs
 
-Another feature is the QtMvvmSettings module. This extends the QtMvvm projects by adding ui independent settings.
+### QtMvvm Settings
+Another feature is the QtMvvmSettings module. This extends the QtMvvm projects by adding ui independent settings. it is provided as seperate module to extend the basic QtMvvm.
 
-- Create a control and an xml file describing the settings ui in your core app
+- Create a control and an xml file (or custom formats) describing the settings ui in your core app
 - Automatically creates a ui for widgets or quick based on the xml
 	- Supports search as well as a reset functionality
 	- Utilizes the same edits as the input dialogs
-
-Check the example application in this repository to see more. See [Example - README](Example/README.md).
 
 ## Modules
 - **QtMvvm** - The QtMvvm library itself
@@ -38,10 +37,10 @@ QtMvvm heavily relies on [qpm](https://www.qpm.io/). Check [GitHub - Installing]
 The following chapters will explain how to create a QtMvvm Project and how to correctly implement applications with it
 
 ### Add the custom wizard
-Tho create a new QtMvvm project, you can use a custom wizard for QtCreator. You will have to add it to your computer once. To do this, you will have to copy the contents of the [`ProjectTemplate`](ProjectTemplate) folder to a location known by QtCreator. The locations ca be found here: [Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards). If you are, for example, working on linux, create a new folder called `QtMvvm` inside of `$HOME/.config/QtProject/qtcreator/templates/wizards` and copy the contents there. After restarting QtCreator, the project template should appear in the `Applications` section of the new-dialog as `QtMvvm Application Project`.
+Tho create a new QtMvvm project, you can use a custom wizard for QtCreator. You will have to add it to your computer once. To do this, you will have to copy the contents of the [`ProjectTemplate`](ProjectTemplate) folder to a location known by QtCreator (Pro Tip: Use [Kinolien's Gitzip](https://kinolien.github.io/gitzip/) to download that directory only). The locations can be found here: [Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards). If you are, for example, working on linux, create a new folder called `QtMvvm` inside of `$HOME/.config/QtProject/qtcreator/templates/wizards` and copy the contents there. After restarting QtCreator, the project template should appear in the `Applications` section of the new-dialog as `QtMvvm Application Project`.
 
 ### Create and initialize the QtMvvm Project
-Follow the setup to create the project. You can select the GUI-frontends you want to use, as well as additional features. After the project has been created, qpm dependencies needs to be installed (Sadly, this cannot be done by the wizard). To install them, simply run `qpm install` inside of every sub-project:
+Follow the setup to create the project. You can select the GUI-frontends you want to use, as well as additional features. After the project has been created, qpm dependencies need to be installed (Sadly, this cannot be done by the wizard). To install them, simply run `qpm install` inside of every sub-project:
 
 ```sh
 cd MyProjectCore
@@ -88,12 +87,10 @@ import de.skycoder42.qtmvvm.quick 1.0
 import com.example.mvvmexample 1.0 //adjust to the module defined in your main.cpp
 ```
 - Add a property named control to the root element: `property MyCustomControl control: null` (If you did not register the control, use `var` instead of `MyCustomControl` as property type)
-- Add a presenter progress element to the root element. This way lazy loading view will show a progress: `PresenterProgress {}`
+- Add a presenter progress element to the root element. This way lazy loading views will show a progress: `PresenterProgress {}`
 - See [`MvvmExample/MvvmExampleQuick/MainView.qml`](MvvmExample/MvvmExampleQuick/MainView.qml) for an example widget
 
 ## Understanding how QtMvvm works
-The next step, of course, is to understand how it works. You can use your created project as reference, but this section will explain it based on the `MvvmExample` project.
-
 The general idea is the following: You create controls in your core project, which represent uis. They typically contain all the properties relevant for the ui, methods (slots) that can be called (e.g. on a button click) and signals to inform the ui about changes and other events. The controls have show and close methods, just like widgets. Thus, you can use the as ui "placeholders". Of course, They only contain the ui logic, not the actual uis.
 
 The CoreApp is what's reponsible for managing those controls. showing or closing a control, as well as messages (alert dialogs) are all controlled by the coreapp. The coreapp uses a so called presenter to create the actual uis. The presenters are located in the ui projects and they are the most complicated part. Their main task is to find ui implementations for controls, and manage the life cycle as well as the presentation of those real uis. The presenters are where the decision is made, how a specific ui should be shown.
@@ -104,20 +101,21 @@ parts of the applications.
 ### A side note on presenters
 To create a presenter, the `IPresenter` must be implemented. Presenters can become quite complicated, but they are the thing you need to modify if you want to present views in a different way from the ones supported. Currently, the presenters can do the following:
 
-- Widgets Presenter
+- Widgets Presenter (Presenter of `de.skycoder42.qtmvvm.widgets`)
 	- Present controls as widgets (or windows, dialogs, depending on type and parent)
 	- Parent-Aware: If your control has a parent and shows a ui, the childs ui will be a child of the parents ui as well
 	- Automatically detect QDockWidgets and place them as dock inside a parents QMainWindow
 	- Automatically detect QMdiSubWindows and place them in a parents QMdiArea
 	- Allows windows to implement `IPresentingWidget`. This way a window can handle the presentation of it's children without modifying the presenter
 	- Allows to register custom input widgets for input dialogs (and other parts, like the settings. See `InputWidgetFactory`)
-- Quick Presenter
+- Quick Presenter (Presenter of `de.skycoder42.qtmvvm.quick`)
 	- Consists of a c++ part and a qml part
 	- The c++ part is responsible for finding views for controls and creating them, but **not** for the actual presentation. This is done by the qml presenter
 		- Allows to register custom input views for input dialogs (and other parts, like the settings. See `InputViewFactory`)
-	- The qml presenter can be any qml type. The `AppBase` or `App` qml types automatically register themselves as presenter and perform the presentations
-		- supports Items as new fullscreen pages inside a stack view 
-		- supports Popups as modal dialogs
+	- The qml presenter can be any qml type. It must provide the correct methods (as seen in `AppBase`) and register itself with `QuickPresenter.qmlPresenter = root`
+		- The `AppBase` or `App` qml types automatically register themselves as presenter and perform the presentations
+		- Supports Items as new fullscreen pages inside a stack view 
+		- Supports Popups as modal dialogs
 
 ## Installation
 All those modules are available as qpm packages. To install any of them:
