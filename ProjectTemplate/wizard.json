@@ -37,7 +37,13 @@
         { "key": "ControlGuard", "value": "%{JS: Cpp.headerGuard('%{ControlHdrName}')}" },
 		
         { "key": "AppQrcName", "value": "%{JS: '%{CoreName}'.toLowerCase()}" },
-        { "key": "AppQrcFile", "value": "%{CoreName}.qrc" }		
+        { "key": "AppQrcFile", "value": "%{AppQrcName}.qrc" },
+		
+		{ "key": "WindowHdrName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('text/x-c++hdr')}')}" },
+		{ "key": "WindowSrcName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('text/x-c++src')}')}" },
+		{ "key": "WindowFormName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('application/x-designer')}')}" },
+        { "key": "WindowCn", "value": "%{JS: Cpp.className('%{WindowClassName}')}" },
+        { "key": "WindowGuard", "value": "%{JS: Cpp.headerGuard('%{WindowHdrName}')}" }	
 	],
 
 	"pages":
@@ -123,7 +129,7 @@
 					}
                 },
                 {
-                    "name": "WidgetClassName",
+                    "name": "WindowClassName",
                     "type": "LineEdit",
                     "trDisplayName": "Widget class name:",
                     "mandatory": true,
@@ -197,6 +203,41 @@
                     "source": "core.qrc",
                     "target": "%{CoreDirectory}/%{AppQrcFile}",
                     "condition": "%{JS: '%{UseSettings}' !== ''}"
+                },
+                {
+                    "source": "settings.xml",
+                    "target": "%{CoreDirectory}/settings.xml",
+                    "condition": "%{JS: '%{UseSettings}' !== ''}"
+                },
+                {
+                    "source": "widgets.pro",
+                    "target": "%{WidgetsProName}",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "qpm_widgets.json",
+                    "target": "%{WidgetsDirectory}/qpm.json",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "widgets_main.cpp",
+                    "target": "%{WidgetsDirectory}/main.cpp",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "window.h",
+                    "target": "%{WidgetsDirectory}/%{WindowHdrName}",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "window.cpp",
+                    "target": "%{WidgetsDirectory}/%{WindowSrcName}",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "window.ui",
+                    "target": "%{WidgetsDirectory}/%{WindowFormName}",
+                    "condition": "%{JS: '%{CreateWidgets}' !== ''}"
                 },
                 {
                     "source": "../../git.ignore",
