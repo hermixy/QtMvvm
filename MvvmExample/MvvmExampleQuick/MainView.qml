@@ -10,8 +10,16 @@ Page {
 
 	header: ActionBar {
 		id: toolbar
-		title: "Main Control"
+		title: qsTr("Main Control")
 		showMenuButton: false
+
+		moreMenu: Menu {
+			MenuItem {
+				id: settings
+				text: qsTr("Settings")
+				onClicked: control.showSettings()
+			}
+		}
 	}
 
 	PresenterProgress {

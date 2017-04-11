@@ -7,8 +7,10 @@ MainWindow::MainWindow(Control *mControl, QWidget *parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-}
 
+	connect(ui->actionSettings, &QAction::triggered,
+			control, &MainControl::showSettings);
+}
 
 MainWindow::~MainWindow()
 {
