@@ -9,7 +9,7 @@ The main feature of QtMvvm is the seperation between ui and logic. With this lib
 - The Control class to represent an ui element in your core app. Allows you to expose properties, signals and slots to the ui and control the application flow from your core app
 - The IPresenter as interface to be implemented on each ui project. This is the part that presents uis based on controls
 - The CoreApp to control the application startup independently of the QApplication used
-- Functions to show messageboxes from your core app
+- Functions to show messageboxes (info, warning, error, etc.) from your core app
 	- Supports even input dialogs, with default edits as well as the option to add custom inputs
 
 Another feature is the QtMvvmSettings module. This extends the QtMvvm projects by adding ui independent settings.
@@ -93,6 +93,31 @@ import com.example.mvvmexample 1.0 //adjust to the module defined in your main.c
 
 ## Understanding how QtMvvm works
 The next step, of course, is to understand how it works. You can use your created project as reference, but this section will explain it based on the `MvvmExample` project.
+
+The general idea is the following: You create controls in your core project, which represent uis. They typically contain all the properties relevant for the ui, methods (slots) that can be called (e.g. on a button click) and signals to inform the ui about changes and other events. The controls have show and close methods, just like widgets. Thus, you can use the as ui "placeholders". Of course, They only contain the ui logic, not the actual uis.
+
+The CoreApp is what's reponsible for managing those controls. showing or closing a control, as well as messages (alert dialogs) are all controlled by the coreapp. The coreapp uses a so called presenter to create the actual uis. The presenters are located in the ui projects and they are the most complicated part. Their main task is to find ui implementations for controls, and manage the life cycle as well as the presentation of those real uis. The presenters are where the decision is made, how a specific ui should be shown.
+
+The uis are whatever you need to create actual uis. This depends on the presenter used, since the presenter selects the uis. Each ui type has their own way to create those uis, but the all have in commmon, that the uis themselves do not control the application. When a control gets shown, a new ui is created and the control passed to it. Once the control was closed (via code or via the gui itself), the gui gets deleted again. Uis are temporary and should only use the control to interact with other
+parts of the applications.
+
+### A side note on presenters
+To create a presenter, the `IPresenter` must be implemented. Presenters can become quite complicated, but they are the thing you need to modify if you want to present views in a different way from the ones supported. Currently, the presenters can do the following:
+
+- Widgets Presenter
+	- Present controls as widgets (or windows, dialogs, depending on type and parent)
+	- Parent-Aware: If your control has a parent and shows a ui, the childs ui will be a child of the parents ui as well
+	- Automatically detect QDockWidgets and place them as dock inside a parents QMainWindow
+	- Automatically detect QMdiSubWindows and place them in a parents QMdiArea
+	- Allows windows to implement `IPresentingWidget`. This way a window can handle the presentation of it's children without modifying the presenter
+	- Allows to register custom input widgets for input dialogs (and other parts, like the settings. See `InputWidgetFactory`)
+- Quick Presenter
+	- Consists of a c++ part and a qml part
+	- The c++ part is responsible for finding views for controls and creating them, but **not** for the actual presentation. This is done by the qml presenter
+		- Allows to register custom input views for input dialogs (and other parts, like the settings. See `InputViewFactory`)
+	- The qml presenter can be any qml type. The `AppBase` or `App` qml types automatically register themselves as presenter and perform the presentations
+		- supports Items as new fullscreen pages inside a stack view 
+		- supports Popups as modal dialogs
 
 ## Installation
 All those modules are available as qpm packages. To install any of them:
