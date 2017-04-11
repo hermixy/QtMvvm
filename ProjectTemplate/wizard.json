@@ -177,7 +177,8 @@
 			[
                 {
                     "source": "project.pro",
-                    "target": "%{ProFileName}"
+                    "target": "%{ProFileName}",
+					"openAsProject": true
                 },
                 {
                     "source": "core.pro",
@@ -274,7 +275,7 @@
                     "condition": "%{JS: '%{CreateQuick}' !== ''}"
                 },
                 {
-                    "source": "../../git.ignore",
+                    "source": "git.ignore",
                     "target": "%{ProjectDirectory}/.gitignore",
                     "condition": "%{JS: !%{IsSubproject} && '%{VersionControl}' === 'G.Git'}"
                 }
