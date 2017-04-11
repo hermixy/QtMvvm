@@ -43,7 +43,7 @@
   <action name="actionSettings">
    <property name="icon">
     <iconset theme="configure" resource="vendor/de/skycoder42/qtmvvm/settings/widgets/de_skycoder42_qtmvvm_settings_widgets.qrc">
-     <normaloff>:/qtmvvm/icons/settings.svg</normaloff>:/qtmvvm/icons/settings.svg</iconset>
+     <normaloff>:/qtmvvm/icons/settings.ico</normaloff>:/qtmvvm/icons/settings.ico</iconset>
    </property>
    <property name="text">
     <string>Settings</string>

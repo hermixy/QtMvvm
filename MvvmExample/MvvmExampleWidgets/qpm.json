@@ -3,7 +3,7 @@
   "description": "",
   "dependencies": [
     "de.skycoder42.qtmvvm.widgets@1.0.1",
-    "de.skycoder42.qtmvvm.settings.widgets@1.0.1",
+    "de.skycoder42.qtmvvm.settings.widgets@1.0.2",
     "de.skycoder42.dialog-master@1.2.4",
     "de.skycoder42.qpm-include@1.0.0"
   ],
