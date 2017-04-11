@@ -35,12 +35,32 @@ Check the example application in this repository to see more. See [Example - REA
 QtMvvm heavily relies on [qpm](https://www.qpm.io/). Check [GitHub - Installing](https://github.com/Cutehacks/qpm/blob/master/README.md#installing) to learn how to install qpm. You can of course use the project without qpm, but in that case you will have to collect all the dependencies by yourself. If you are unfamiliar with qpm, no worries, it's really easy to use.
 	
 ## Gettings started
-The easiest way to get started is to use the Qt Project template. Simply copy the contents of `ProjectTemplate` to the path described here ([Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards)) and create a QtMvvm Project via QtCreators project wizard. In that case, you can skip the first two steps and only need to install qpm dependencies. To do so, simply go to the Core, Widgets and Quick directories and run `qpm install` inside of them. However, you should still read all steps to learn how QtMvvm works.
+The following chapters will explain how to create a QtMvvm Project and how to correctly implement applications with it
 
-### Step 1 - Create the core project
-### Step 2 - Create gui project(s)
-### Step 3 - Add the core code
-### Step 4 - Add the gui code 
+### Add the custom wizard
+Tho create a new QtMvvm project, you can use a custom wizard for QtCreator. You will have to add it to your computer once. To do this, you will have to copy the contents of the `ProjectTemplate` folder to a location known by QtCreator. The locations ca be found here: [Locating Wizards](https://doc.qt.io/qtcreator/creator-project-wizards.html#locating-wizards). If you are, for example, working on linux, create a new folder called `QtMvvm` inside of `$HOME/.config/QtProject/qtcreator/templates/wizards` and copy the contents there. After restarting QtCreator, the project template should appear in the `Applications` section of the new-dialog as `QtMvvm Application Project`.
+
+### Create and initialize the QtMvvm Project
+Follow the setup to create the project. You can select the GUI-frontends you want to use, as well as additional features. After the project has been created, qpm dependencies needs to be installed (Sadly, this cannot be done by the wizard). To install them, simply run `qpm install` inside of every sub-project:
+
+```sh
+cd MyProjectCore
+qpm install
+cd ..
+
+cd MyProjectWidgets
+qpm install
+cd ..
+
+cd MyProjectQuick
+qpm install
+cd ..
+```
+
+Once that's done, the project should build and run successfully. (**Note:** Don't be irritated by the long build time. The qpm dependencies must be built initially, for all 3 projects. But since those don't change, only the first build/rebuilds take longer)
+
+### Understanding how QtMvvm works
+The next step, of course, is to understand how it works. You can use your created project as reference, but this section will explain it based on the `MvvmExample` project
 
 ## Installation
 All those modules are available as qpm packages. To install any of them:
