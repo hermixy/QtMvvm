@@ -22,7 +22,5 @@ Page {
 		}
 	}
 
-	PresenterProgress {
-		z: 10
-	}
+	PresenterProgress {}
 }

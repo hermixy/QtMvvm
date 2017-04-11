@@ -24,7 +24,5 @@ Page {
 @endif
 	}
 
-	PresenterProgress {
-		z: 10
-	}
+	PresenterProgress {}
 }
