@@ -10,7 +10,7 @@ Page {
 
 	header: ActionBar {
 		id: toolbar
-		title: qsTr("Main Control")
+		title: qsTr("MainControl")
 		showMenuButton: false
 
 		moreMenu: Menu {

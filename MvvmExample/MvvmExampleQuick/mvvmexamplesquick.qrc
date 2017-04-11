@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/qml">
-        <file>App.qml</file>
-    </qresource>
-    <qresource prefix="/qml/views">
-        <file>MainView.qml</file>
-    </qresource>
-</RCC>

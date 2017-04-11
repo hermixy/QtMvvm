@@ -10,12 +10,11 @@ class MainControl : public Control
 public:
 	explicit MainControl(QObject *parent = nullptr);
 
-public slots:
-	void showSettings();
-
-public:
 	void onShow() override;
 	void onClose() override;
+
+public slots:
+	void showSettings();
 };
 
 #endif // MAINCONTROL_H

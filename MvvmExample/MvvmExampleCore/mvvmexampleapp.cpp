@@ -6,7 +6,7 @@ MvvmExampleApp::MvvmExampleApp(QObject *parent) :
 {
 	//register metatypes etc here, just like you would do in your main before call QCoreApplication::exec
 
-	//if you are using a resource (e.g. my_resource.qrc), initialize it with:
+	//if you are using a qt resource (e.g. "mvvmexamplecore.qrc"), initialize it here
 	Q_INIT_RESOURCE(mvvmexamplecore);
 }
 

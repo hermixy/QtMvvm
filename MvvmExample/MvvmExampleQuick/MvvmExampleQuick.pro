@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += core gui qml quick
+QT += core gui qml quick quickcontrols2
 CONFIG += c++11
 
 TARGET = MvvmExampleQuick
@@ -19,7 +19,7 @@ include(vendor/vendor.pri)
 SOURCES += main.cpp
 
 RESOURCES += \
-    mvvmexamplesquick.qrc
+    mvvmexamplequick.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
