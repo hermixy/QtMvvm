@@ -4,7 +4,5 @@
 		   type="bool"
 		   title="&amp;Check me"
 		   tooltip="I am a checkbox!"
-		   default="false">
-		<Property key="text" type="string">Stuff</Property>
-	</Entry>
+		   default="false" />
 </SettingsConfig>

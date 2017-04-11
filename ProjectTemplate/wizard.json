@@ -11,6 +11,7 @@
 	"enabled": "%{JS: [ %{Plugins} ].indexOf('QmakeProjectManager') >= 0}",
 	"options":
 	[
+		{ "key": "ProjectLowerName", "value": "%{JS: '%{ProjectName}'.toLowerCase()}" },
 		{ "key": "ProFileName", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'pro')}" },
 		
 		{ "key": "CoreName", "value": "%{ProjectName}Core" },
@@ -37,13 +38,16 @@
         { "key": "ControlGuard", "value": "%{JS: Cpp.headerGuard('%{ControlHdrName}')}" },
 		
         { "key": "AppQrcName", "value": "%{JS: '%{CoreName}'.toLowerCase()}" },
-        { "key": "AppQrcFile", "value": "%{AppQrcName}.qrc" },
+        { "key": "AppQrcFile", "value": "%{JS: Util.fileName('%{AppQrcName}', 'qrc')}" },
 		
 		{ "key": "WindowHdrName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('text/x-c++hdr')}')}" },
 		{ "key": "WindowSrcName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('text/x-c++src')}')}" },
 		{ "key": "WindowFormName", "value": "%{JS: Cpp.classToFileName('%{WindowClassName}', '%{JS: Util.preferredSuffix('application/x-designer')}')}" },
         { "key": "WindowCn", "value": "%{JS: Cpp.className('%{WindowClassName}')}" },
-        { "key": "WindowGuard", "value": "%{JS: Cpp.headerGuard('%{WindowHdrName}')}" }	
+        { "key": "WindowGuard", "value": "%{JS: Cpp.headerGuard('%{WindowHdrName}')}" },
+		
+        { "key": "QuickQrcFile", "value": "%{JS: Util.fileName('%{JS: '%{QuickName}'.toLowerCase()}', 'qrc')}" },
+		{ "key": "QuickQmlName", "value": "%{JS: Util.fileName('%{QuickClassName}', '%{JS: Util.preferredSuffix('text/x-qml')}')}" }
 	],
 
 	"pages":
@@ -238,6 +242,36 @@
                     "source": "window.ui",
                     "target": "%{WidgetsDirectory}/%{WindowFormName}",
                     "condition": "%{JS: '%{CreateWidgets}' !== ''}"
+                },
+                {
+                    "source": "quick.pro",
+                    "target": "%{QuickProName}",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
+                },
+                {
+                    "source": "qpm_quick.json",
+                    "target": "%{QuickDirectory}/qpm.json",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
+                },
+                {
+                    "source": "quick_main.cpp",
+                    "target": "%{QuickDirectory}/main.cpp",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
+                },
+                {
+                    "source": "quick.qrc",
+                    "target": "%{QuickDirectory}/%{QuickQrcFile}",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
+                },
+                {
+                    "source": "App.qml",
+                    "target": "%{QuickDirectory}/App.qml",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
+                },
+                {
+                    "source": "view.qml",
+                    "target": "%{QuickDirectory}/%{QuickQmlName}",
+                    "condition": "%{JS: '%{CreateQuick}' !== ''}"
                 },
                 {
                     "source": "../../git.ignore",
