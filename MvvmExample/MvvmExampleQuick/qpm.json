@@ -2,8 +2,8 @@
   "name": "",
   "description": "",
   "dependencies": [
-    "de.skycoder42.qtmvvm.quick@1.0.1",
-    "de.skycoder42.qtmvvm.settings.quick@1.0.1",
+    "de.skycoder42.qtmvvm.quick@1.0.2",
+    "de.skycoder42.qtmvvm.settings.quick@1.0.2",
     "de.skycoder42.qpm-include@1.0.0",
     "de.skycoder42.quickextras@2.0.2"
   ],
