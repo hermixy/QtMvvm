@@ -1,0 +1,27 @@
+version: "3.0"
+services:
+  postgresql:
+    container_name: qtmvvm_datasync_postgresql
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: qtdatasync
+      POSTGRES_PASSWORD: baum42
+      POSTGRES_DB: QtDataSync
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - qtmvvm_datasync_data:/var/lib/postgresql/data/pgdata
+  datasync:
+    container_name: qtmvvm_datasync_server
+    image: skycoder42/qdatasyncserver:latest
+    depends_on:
+      - postgresql
+    ports:
+      - "8080/tcp:80/tcp"
+    environment:
+      DATASYNC_SECRET: baum42
+      DATABASE_HOST: qtmvvm_datasync_postgresql
+      DATABASE_USER: qtdatasync
+      DATABASE_PASSWORD: baum42
+      DATABASE_NAME: QtDataSync
+volumes:
+  qtmvvm_datasync_data:
