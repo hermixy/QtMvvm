@@ -5,6 +5,11 @@
 
 #include "maincontrol.h"
 
+class SampleData : public QObject
+{
+	Q_OBJECT
+};
+
 class QtMvvmDatasyncApp : public CoreApp
 {
 	Q_OBJECT

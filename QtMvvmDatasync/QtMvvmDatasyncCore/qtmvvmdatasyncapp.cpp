@@ -6,10 +6,7 @@ QtMvvmDatasyncApp::QtMvvmDatasyncApp(QObject *parent) :
 	CoreApp(parent),
 	mainControl(nullptr)
 {
-	//register metatypes etc here, just like you would do in your main before call QCoreApplication::exec
-
-	//if you are using a qt resource (e.g. "qtmvvmdatasynccore.qrc"), initialize it here
-	//Q_INIT_RESOURCE(qtmvvmdatasynccore);
+	qRegisterMetaType<SampleData*>();
 }
 
 void QtMvvmDatasyncApp::setupParser(QCommandLineParser &parser, bool &allowInvalid) const
