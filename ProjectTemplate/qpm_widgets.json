@@ -3,9 +3,9 @@
   "description": "",
   "dependencies": [
 @if '%{UseSettings}'
-    "de.skycoder42.qtmvvm.settings.widgets@1.0.2",
+    "de.skycoder42.qtmvvm.settings.widgets@1.0.3",
 @endif
-    "de.skycoder42.qtmvvm.widgets@1.0.1"
+    "de.skycoder42.qtmvvm.widgets@1.0.2"
   ],
   "license": "NONE",
   "pri_filename": "",
