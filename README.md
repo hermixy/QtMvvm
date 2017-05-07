@@ -1,7 +1,7 @@
 # QtMvvm
 A mvvm oriented library for Qt, to create Projects for Widgets and Quick in parallel
 
-**Note:** This project consists of many small github repositories. This repository is a meta-repository to keep documentation etc. in one place. Read the [Installation](#installation) chapter to learn how to use those repos.
+**Note:** This project consists of many small github repositories. This repository is a meta-repository to keep documentation, examples, etc. in one place. Read the [Installation](#installation) chapter to learn how to use those repos.
 
 ## Features
 The main feature of QtMvvm is the seperation between ui and logic. With this library, you can create a core library, containing your application logic, as well as ui controllers, and create multiple ui projects on top of it. This way you can for example provide both, a widgets and a qt quick based application, or create different uis for different devices. The key features are:
@@ -19,16 +19,34 @@ Another feature is the QtMvvmSettings module. This extends the QtMvvm projects b
 - Automatically creates a ui for widgets or quick based on the xml
 	- Supports search as well as a reset functionality
 	- Utilizes the same edits as the input dialogs
+	
+### QtMvvm Datasync
+The QtMvvmDatasync module helps you to integrate [QtDataSync](https://github.com/Skycoder42/QtDataSync) (An easy and reliable synchronization library) into your projects. It adds uis to:
+
+- Monitor the connection status
+	- Current status
+	- Synchronization progress
+	- Displays errors (if present)
+- Enable/disable synchronization
+- Trigger synchronization
+	- Including Resync
+- Exchange User data (identity, encryption key, etc.)
+	- Export/Import via files
+	- UPD-based local network exchange
 
 ## Modules
 - **QtMvvm** - The QtMvvm library itself
 	- [`de.skycoder42.qtmvvm.core`](https://github.com/Skycoder42/QtMvvmCore) - The core part of qtmvvm
 	- [`de.skycoder42.qtmvvm.widgets`](https://github.com/Skycoder42/QtMvvmWidgets) - The basic frontend for QtWidgets
-	- [`de.skycoder42.qtmvvm.quick`](https://github.com/Skycoder42/QtMvvmQuick) - The basic frontend for QtQuick Controls 2Modules
+	- [`de.skycoder42.qtmvvm.quick`](https://github.com/Skycoder42/QtMvvmQuick) - The basic frontend for QtQuick Controls 2
 - **QtMvvmSettings** - A module adding an easy way to create settings dialogs
 	- [`de.skycoder42.qtmvvm.settings.core`](https://github.com/Skycoder42/QtMvvmSettingsCore) - The core part of the settings module (the logic)
 	- [`de.skycoder42.qtmvvm.settings.widgets`](https://github.com/Skycoder42/QtMvvmSettingsWidgets) - The ui implementation for QtWidgets
 	- [`de.skycoder42.qtmvvm.settings.quick`](https://github.com/Skycoder42/QtMvvmSettingsQuick) - The ui implementation for QtQuick Controls 2
+- **QtMvvmDatasync** - A module adding control and monitor uis for the QtDataSync library
+	- [`de.skycoder42.qtmvvm.datasync.core`](https://github.com/Skycoder42/QtMvvmDatasyncCore) - The core part of the datasync module (the logic)
+	- [`de.skycoder42.qtmvvm.datasync.widgets`](https://github.com/Skycoder42/QtMvvmDatasyncWidgets) - The ui implementation for QtWidgets
+	- [`de.skycoder42.qtmvvm.datasync.quick`](https://github.com/Skycoder42/QtMvvmDatasyncQuick) - The ui implementation for QtQuick Controls 2
 	
 ## Requirements
 QtMvvm heavily relies on [qpm](https://www.qpm.io/). Check [GitHub - Installing](https://github.com/Cutehacks/qpm/blob/master/README.md#installing) to learn how to install qpm. You can of course use the project without qpm, but in that case you will have to collect all the dependencies by yourself. If you are unfamiliar with qpm, no worries, it's really easy to use.
@@ -125,3 +143,9 @@ All those modules are available as qpm packages. To install any of them:
 3. Include qpm to your project by adding `include(vendor/vendor.pri)` to your `.pro` file
 
 Check their [GitHub - Usage for App Developers](https://github.com/Cutehacks/qpm/blob/master/README.md#usage-for-app-developers) to learn more about qpm.
+
+## Icons
+In many of the UI projects default icons are used for the views (if no icon theme is present). They are taken from:
+
+- Widgets: http://www.fatcow.com/free-icons
+- Quick: https://material.io/icons/
