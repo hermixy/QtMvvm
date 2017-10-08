@@ -7,9 +7,6 @@ TARGET = QtMvvmDatasyncWidgets
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
-QPM_INCLUDEPATH = $$PWD/../QtMvvmDatasyncCore/vendor/vendor.pri
-include(vendor/vendor.pri)
-
 HEADERS += mainwindow.h
 
 SOURCES += main.cpp \
@@ -30,3 +27,6 @@ else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../QtMv
 else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../QtMvvmDatasyncCore/release/QtMvvmDatasyncCore.lib
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../QtMvvmDatasyncCore/debug/QtMvvmDatasyncCore.lib
 else:unix: PRE_TARGETDEPS += $$OUT_PWD/../QtMvvmDatasyncCore/libQtMvvmDatasyncCore.a
+
+!ReleaseBuild:!DebugBuild:!system(qpmx -d $$shell_quote($$_PRO_FILE_PWD_) --qmake-run init $$QPMX_EXTRA_OPTIONS $$shell_quote($$QMAKE_QMAKE) $$shell_quote($$OUT_PWD)): error(qpmx initialization failed. Check the compilation log for details.)
+else: include($$OUT_PWD/qpmx_generated.pri)

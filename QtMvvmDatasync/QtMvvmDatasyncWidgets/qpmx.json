@@ -1,0 +1,21 @@
+{
+    "dependencies": [
+        {
+            "package": "de.skycoder42.qtmvvm.datasync.widgets",
+            "provider": "qpm",
+            "version": "1.2.0"
+        }
+    ],
+    "license": {
+        "file": "",
+        "name": ""
+    },
+    "prcFile": "",
+    "priFile": "",
+    "priIncludes": [
+        "../QtMvvmDatasyncCore"
+    ],
+    "publishers": {
+    },
+    "source": false
+}
