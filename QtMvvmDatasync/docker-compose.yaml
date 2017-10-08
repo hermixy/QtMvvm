@@ -16,7 +16,7 @@ services:
     depends_on:
       - postgresql
     ports:
-      - "8080/tcp:80/tcp"
+      - "8080:80/tcp"
     environment:
       DATASYNC_SECRET: baum42
       DATABASE_HOST: qtmvvm_datasync_postgresql
