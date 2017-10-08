@@ -185,8 +185,8 @@
                     "target": "%{CoreProName}"
                 },
                 {
-                    "source": "qpm_core.json",
-                    "target": "%{CoreDirectory}/qpm.json"
+                    "source": "qpmx_core.json",
+                    "target": "%{CoreDirectory}/qpmx.json"
                 },
                 {
                     "source": "app.h",
@@ -220,8 +220,8 @@
                     "condition": "%{JS: '%{CreateWidgets}' !== ''}"
                 },
                 {
-                    "source": "qpm_widgets.json",
-                    "target": "%{WidgetsDirectory}/qpm.json",
+                    "source": "qpmx_widgets.json",
+                    "target": "%{WidgetsDirectory}/qpmx.json",
                     "condition": "%{JS: '%{CreateWidgets}' !== ''}"
                 },
                 {
@@ -250,8 +250,8 @@
                     "condition": "%{JS: '%{CreateQuick}' !== ''}"
                 },
                 {
-                    "source": "qpm_quick.json",
-                    "target": "%{QuickDirectory}/qpm.json",
+                    "source": "qpmx_quick.json",
+                    "target": "%{QuickDirectory}/qpmx.json",
                     "condition": "%{JS: '%{CreateQuick}' !== ''}"
                 },
                 {
