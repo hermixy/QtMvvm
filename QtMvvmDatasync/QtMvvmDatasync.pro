@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
 	QtMvvmDatasyncWidgets \
-	#QtMvvmDatasyncQuick \
+	QtMvvmDatasyncQuick \
 	QtMvvmDatasyncCore
 
 QtMvvmDatasyncWidgets.depends += QtMvvmDatasyncCore
