@@ -24,9 +24,11 @@ bool QtMvvmDatasyncApp::startApp(const QCommandLineParser &parser)
 	//use this method to create services, controls, etc
 	QtDataSync::Setup().create();
 	auto auth = QtDataSync::Setup::authenticatorForSetup<QtDataSync::WsAuthenticator>(this);
-	auth->setRemoteUrl(QStringLiteral("ws://localhost:8080"));
-	auth->setServerSecret("baum42");
-	auth->reconnect();
+	if(!auth->remoteUrl().isValid()) {
+		auth->setRemoteUrl(QStringLiteral("ws://localhost:8080"));
+		auth->setServerSecret("baum42");
+		auth->reconnect();
+	}
 	auth->deleteLater();
 
 	//create and show the inital control
