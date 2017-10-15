@@ -18,6 +18,9 @@ SOURCES += main.cpp
 RESOURCES += \\
     %{QuickQrcFile}
 
+TRANSLATIONS += %{ProjectLowerName}_quick_de.ts \\
+	%{ProjectLowerName}_quick_template.ts
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

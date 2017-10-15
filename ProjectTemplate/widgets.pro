@@ -14,6 +14,9 @@ SOURCES += main.cpp \\
 
 FORMS += %{WindowFormName}
 
+TRANSLATIONS += %{ProjectLowerName}_widgets_de.ts \
+	%{ProjectLowerName}_widgets_template.ts
+
 # Link with core project
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../%{CoreName}/release/ -l%{CoreName}
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../%{CoreName}/debug/ -l%{CoreName}
