@@ -59,12 +59,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
 @if '%{UseSettings}'
   <action name="actionSettings">
    <property name="icon">
-    <iconset theme="configure" resource="vendor/de/skycoder42/qtmvvm/settings/widgets/de_skycoder42_qtmvvm_settings_widgets.qrc">
+    <iconset theme="configure">
      <normaloff>:/qtmvvm/icons/settings.ico</normaloff>:/qtmvvm/icons/settings.ico</iconset>
    </property>
    <property name="text">
@@ -80,12 +81,6 @@
 @endif
  </widget>
  <layoutdefault spacing="6" margin="11"/>
-@if '%{UseSettings}'
- <resources>
-  <include location="vendor/de/skycoder42/qtmvvm/settings/widgets/de_skycoder42_qtmvvm_settings_widgets.qrc"/>
- </resources>
-@else
  <resources/>
-@endif
  <connections/>
 </ui>
