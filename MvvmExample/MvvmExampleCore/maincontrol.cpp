@@ -3,8 +3,13 @@
 
 MainControl::MainControl(QObject *parent) :
 	Control(parent),
-	_text(QStringLiteral("baum42"))
+	_text(QStringLiteral("hello world"))
 {}
+
+QString MainControl::text() const
+{
+	return _text;
+}
 
 void MainControl::showSettings()
 {
@@ -13,15 +18,10 @@ void MainControl::showSettings()
 	settings->show();
 }
 
-QString MainControl::text() const
-{
-	return _text;
-}
-
 void MainControl::setText(QString text)
 {
 	if (_text == text)
-			return;
+		return;
 
 	_text = text;
 	emit textChanged(_text);

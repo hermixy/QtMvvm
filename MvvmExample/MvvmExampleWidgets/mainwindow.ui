@@ -13,27 +13,10 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>77</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
      <widget class="QLineEdit" name="lineEdit"/>
     </item>
     <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
+     <widget class="QLabel" name="label"/>
     </item>
     <item>
      <spacer name="verticalSpacer_2">
@@ -79,7 +62,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionSettings">
    <property name="icon">
-    <iconset theme="configure" resource="../../../QtMvvmSettingsWidgets/de_skycoder42_qtmvvm_settings_widgets.qrc">
+    <iconset theme="configure">
      <normaloff>:/qtmvvm/icons/settings.ico</normaloff>:/qtmvvm/icons/settings.ico</iconset>
    </property>
    <property name="text">
@@ -94,8 +77,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="../../../QtMvvmSettingsWidgets/de_skycoder42_qtmvvm_settings_widgets.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
