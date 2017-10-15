@@ -10,7 +10,46 @@
     <height>300</height>
    </rect>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>77</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>77</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -35,11 +74,12 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionSettings">
    <property name="icon">
-    <iconset theme="configure" resource="vendor/de/skycoder42/qtmvvm/settings/widgets/de_skycoder42_qtmvvm_settings_widgets.qrc">
+    <iconset theme="configure" resource="../../../QtMvvmSettingsWidgets/de_skycoder42_qtmvvm_settings_widgets.qrc">
      <normaloff>:/qtmvvm/icons/settings.ico</normaloff>:/qtmvvm/icons/settings.ico</iconset>
    </property>
    <property name="text">
@@ -55,7 +95,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="vendor/de/skycoder42/qtmvvm/settings/widgets/de_skycoder42_qtmvvm_settings_widgets.qrc"/>
+  <include location="../../../QtMvvmSettingsWidgets/de_skycoder42_qtmvvm_settings_widgets.qrc"/>
  </resources>
  <connections/>
 </ui>

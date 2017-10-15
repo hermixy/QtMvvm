@@ -1,0 +1,16 @@
+{
+    "devmode": [
+        {
+            "package": "de.skycoder42.qtmvvm.settings.core",
+            "path": "../../../QtMvvmSettingsCore",
+            "provider": "qpm",
+            "version": "1.1.0"
+        },
+        {
+            "package": "de.skycoder42.qtmvvm.core",
+            "path": "../../../QtMvvmCore",
+            "provider": "qpm",
+            "version": "1.1.0"
+        }
+    ]
+}
