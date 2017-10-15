@@ -18,7 +18,8 @@ SOURCES += \
 RESOURCES += \
 	mvvmexamplecore.qrc
 
-TRANSLATIONS += example_core_de.ts
+TRANSLATIONS += mvvmexample_core_de.ts \
+	mvvmexample_core_template.ts
 
 QTMVVM_SETTINGS_FILES = settings.xml
 never_true_lupdate_only: SOURCES += .qtmvvm_settings_xml_ts.cppdummy

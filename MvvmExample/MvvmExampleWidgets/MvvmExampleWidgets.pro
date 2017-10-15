@@ -14,6 +14,9 @@ SOURCES += main.cpp \
 
 FORMS += mainwindow.ui
 
+TRANSLATIONS += mvvmexample_widgets_de.ts \
+	mvvmexample_widgets_template.ts
+
 # Link with core project
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../MvvmExampleCore/release/ -lMvvmExampleCore
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../MvvmExampleCore/debug/ -lMvvmExampleCore

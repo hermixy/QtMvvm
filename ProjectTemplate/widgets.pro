@@ -14,7 +14,7 @@ SOURCES += main.cpp \\
 
 FORMS += %{WindowFormName}
 
-TRANSLATIONS += %{ProjectLowerName}_widgets_de.ts \
+TRANSLATIONS += %{ProjectLowerName}_widgets_de.ts \\
 	%{ProjectLowerName}_widgets_template.ts
 
 # Link with core project

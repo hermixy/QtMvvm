@@ -20,11 +20,10 @@ RESOURCES += \\
 	%{AppQrcFile}
 
 @endif
-TRANSLATIONS += %{ProjectLowerName}_core_de.ts \
+TRANSLATIONS += %{ProjectLowerName}_core_de.ts \\
 	%{ProjectLowerName}_core_template.ts
 
 @if '%{UseSettings}'
-
 QTMVVM_SETTINGS_FILES = settings.xml
 never_true_lupdate_only: SOURCES += .qtmvvm_settings_xml_ts.cppdummy
 CONFIG += no_settings_ts_warn
