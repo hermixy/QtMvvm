@@ -23,8 +23,8 @@ void MainControl::setText(QString text)
 	if (_text == text)
 			return;
 
-		_text = text;
-		emit textChanged(_text);
+	_text = text;
+	emit textChanged(_text);
 }
 
 void MainControl::onShow()

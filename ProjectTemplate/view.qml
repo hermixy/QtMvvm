@@ -25,4 +25,41 @@ Page {
 	}
 
 	PresenterProgress {}
+
+	Pane {
+		anchors.fill: parent
+
+		ColumnLayout {
+			anchors.fill: parent
+
+			TextField {
+				id: textEdit
+				Layout.fillWidth: true
+
+				QtMvvmBinding {
+					control: mainView.control
+					controlProperty: "text"
+					view: textEdit
+					viewProperty: "text"
+				}
+			}
+
+			Label {
+				id: textLabel
+				Layout.fillWidth: true
+
+				QtMvvmBinding {
+					control: mainView.control
+					controlProperty: "text"
+					view: textLabel
+					viewProperty: "text"
+					type: QtMvvmBinding.OneWayFromControl
+				}
+			}
+
+			Item {
+				Layout.fillHeight: true
+			}
+		}
+	}
 }

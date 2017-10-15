@@ -4,8 +4,14 @@
 @endif
 
 %{ControlCn}::%{ControlCn}(QObject *parent) :
-	Control(parent)
+	Control(parent),
+	_text(QStringLiteral("hello world"))
 {}
+
+QString %{ControlCn}::text() const
+{
+	return _text;
+}
 
 @if '%{UseSettings}'
 void %{ControlCn}::showSettings()
@@ -16,6 +22,15 @@ void %{ControlCn}::showSettings()
 }
 
 @endif
+void %{ControlCn}::setText(QString text)
+{
+	if (_text == text)
+		return;
+	
+	_text = text;
+	emit textChanged(_text);
+}
+
 void %{ControlCn}::onShow()
 {
 	qDebug("%{ControlName} gui is now visible");
